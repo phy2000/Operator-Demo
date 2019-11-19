@@ -1,5 +1,5 @@
 echo $(date) START $0
-HELMDIR=/Users/pyoung/WORK/Operator/helm
+source ./env.sh
 cd $HELMDIR
 helm install \
 	-f ./providers/gcp.yaml \

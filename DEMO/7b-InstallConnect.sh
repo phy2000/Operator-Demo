@@ -1,4 +1,4 @@
-HELMDIR=~/WORK/Operator/helm
+source ./env.sh
 #MEMREQ="--set connect.resources.requests.memory=1Gi"
 cd $HELMDIR
 helm install \

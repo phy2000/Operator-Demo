@@ -1,4 +1,4 @@
-HELMDIR=/Users/pyoung/WORK/Operator/helm
+source ./env.sh
 cd $HELMDIR
 helm install \
 	-f ./providers/gcp.yaml \
