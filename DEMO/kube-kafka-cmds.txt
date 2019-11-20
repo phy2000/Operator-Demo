@@ -1,0 +1,22 @@
+
+     kubectl get kafka -n operator | grep kafka
+     kubectl describe kafka kafka -n operator
+     kubectl get kafka kafka -ojson -n operator
+     kubectl get kafka kafka -ojsonpath='{.status.phase}' -n operator
+     kubectl  -n operator  get kafka kafka -ojsonpath='{.status.brokerExternalListener}'
+     kubectl  -n operator  get kafka kafka -ojsonpath='{.status.brokerInternalListener}'
+     kubectl edit kafka kafka  -n operator
+     kubectl get kafka kafka -n operator -oyaml
+     # JAAS
+     kubectl -n operator  get kafka kafka -ojsonpath='{.status.internalClient}' > kafka.properties
+     kubectl -n operator get kafka kafka -ojsonpath='{.status.bootstrapEndpoint}' | tee bootstrap.Endpoint
+     kubectl -n operator get kafka kafka -ojsonpath='{.status.replicationFactor}' | tee replicationFactor
+     kubectl -n operator get kafka kafka -ojsonpath='{.status.zookeeperConnect}' | tee zookeeperConnect
+     kubectl -n operator exec -it kafka-0 bash
+cat <<EOF > kafka.properties
+## Copy information from kafka.properties available in step 7 (Client Access) step 1.
+EOF
+     kafka-broker-api-versions --command-config kafka.properties --bootstrap-server <bootstrapEndpoint>
+     kafka-topics --create --bootstrap-server kafka:9071 --command-config kafka.properties --replication-factor 3 --partitions 1 --topic example
+     seq 10000 | kafka-console-producer --topic example --broker-list kafka:9071 --producer.config kafka.properties
+     kafka-console-consumer --from-beginning --topic example --bootstrap-server  kafka:9071 --consumer.config kafka.properties
