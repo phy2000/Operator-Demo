@@ -1,8 +1,7 @@
 source ./env.sh
-cd $HELMDIR
 helm install \
-	-f ./providers/gcp.yaml \
-	--name kafka \
+	-f $HELMDIR/providers/gcp.yaml \
 	--namespace operator \
 	--set kafka.enabled=true \
-	./confluent-operator
+	kafka \
+	$HELMDIR/confluent-operator

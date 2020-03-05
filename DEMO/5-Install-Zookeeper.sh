@@ -1,8 +1,7 @@
 source ./env.sh
-cd $HELMDIR
 helm install \
-	-f ./providers/gcp.yaml \
-	--name zookeeper \
+	-f $HELMDIR/providers/gcp.yaml \
 	--namespace operator \
 	--set zookeeper.enabled=true \
-	./confluent-operator
+	zookeeper \
+	$HELMDIR/confluent-operator
