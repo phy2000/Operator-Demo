@@ -1,0 +1,5 @@
+kafka:
+  name: kafka
+  configOverrides:
+    server:
+    - auto.create.topics.enable=false
