@@ -3,4 +3,4 @@ if [ $# -ge 1 ] ; then
     POD=$1
 fi
 # Must provide pod name
-kubectl -n operator exec -it $POD bash
+kubectl -n operator exec -it $POD /bin/sh

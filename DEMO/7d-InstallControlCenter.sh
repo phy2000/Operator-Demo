@@ -1,10 +1,10 @@
 source ./env.sh
 helm install \
     -f $HELMDIR/providers/gcp.yaml \
-    --name controlcenter \
     --namespace operator \
     --set disableHostPort=true \
     --set controlcenter.enabled=true \
+    controlcenter \
     $HELMDIR/confluent-operator
 
 if false; then

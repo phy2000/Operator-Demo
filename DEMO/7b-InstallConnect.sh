@@ -1,10 +1,10 @@
 source ./env.sh
 helm install \
     -f $HELMDIR/providers/gcp.yaml \
-    --name connectors \
     --namespace operator \
     --set disableHostPort=true \
     --set connect.enabled=true \
+    connectors \
     $HELMDIR/confluent-operator
 
 if true; then

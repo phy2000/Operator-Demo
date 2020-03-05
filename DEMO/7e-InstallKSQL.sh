@@ -1,10 +1,10 @@
 source ./env.sh
 helm install \
     -f $HELMDIR/providers/gcp.yaml \
-    --name ksql \
     --namespace operator \
     --set disableHostPort=true \
     --set ksql.enabled=true \
+    ksql \
     $HELMDIR/confluent-operator
 
 if true; then

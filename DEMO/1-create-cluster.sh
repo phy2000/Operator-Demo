@@ -3,8 +3,7 @@ source ./env.sh
 
 echo $(date) START $0
 gcloud container clusters create $CLUSTER_ID \
-  --enable-cloud-logging \
-  --enable-cloud-monitoring \
+  --enable-stackdriver-kubernetes \
   ${BASE_CLUSTER_VERSION} \
   --subnetwork default \
   --machine-type $BASE_MACHINE_TYPE \

@@ -1,10 +1,10 @@
 source ./env.sh
 helm install \
     -f $HELMDIR/providers/gcp.yaml \
-    --name replicator \
     --namespace operator \
     --set disableHostPort=true \
     --set replicator.enabled=true \
+    replicator \
     $HELMDIR/confluent-operator
 
 if true; then
