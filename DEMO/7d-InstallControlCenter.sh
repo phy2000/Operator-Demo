@@ -10,5 +10,5 @@ helm install \
 if false; then
     exit
 fi
-source retry.sh; retry 15 kubectl -n operator get sts controlcenter
+retry 15 kubectl -n operator get sts controlcenter
 kubectl -n operator rollout status statefulset/controlcenter

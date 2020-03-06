@@ -10,5 +10,5 @@ helm install \
 if true; then
     exit
 fi
-source retry.sh; retry 15 kubectl -n operator get sts ksql
+retry 15 kubectl -n operator get sts ksql
 kubectl -n operator rollout status statefulset/ksql

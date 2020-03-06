@@ -7,5 +7,5 @@ helm install \
     schemaregistry \
     $HELMDIR/confluent-operator
 
-source ./retry.sh; retry 15 kubectl -n operator get sts schemaregistry
+retry 15 kubectl -n operator get sts schemaregistry
 kubectl -n operator rollout status statefulset/schemaregistry

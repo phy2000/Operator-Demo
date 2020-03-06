@@ -10,5 +10,5 @@ helm install \
 if true; then
     exit
 fi
-source retry.sh; retry 15 kubectl -n operator get sts replicators
+retry 15 kubectl -n operator get sts replicators
 kubectl -n operator rollout status statefulset/replicators

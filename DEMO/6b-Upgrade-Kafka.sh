@@ -12,5 +12,5 @@ helm upgrade \
 	--wait \
 	kafka \
 	$HELMDIR/confluent-operator
-source retry.sh; retry 15 kubectl -n operator get sts kafka
+retry 15 kubectl -n operator get sts kafka
 kubectl -n operator rollout status statefulset/kafka

@@ -12,3 +12,5 @@ export BASE_DISK_SIZE=32
 export BASE_NUM_NODES=12
 export KUBECTL_CONTEXT=gke_${PROJECT_ID}_${BASE_ZONE}_${CLUSTER_ID}
 export HELMDIR=../confluent-operator/helm
+
+source 00a-retry.sh
