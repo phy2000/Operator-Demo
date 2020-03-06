@@ -1,3 +1,6 @@
+echo In Helm 3.0 Tiller is not needed
+echo Skipping $0
+exit
 echo $(date) START $0
 source ./env.sh
 cd $HELMDIR
