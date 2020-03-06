@@ -1,3 +1,7 @@
+# In helm 3.x the stable repos must be added explicitly (for now)
+helm repo add stable https://kubernetes-charts.storage.googleapis.com
+helm repo update
+
 helm install \
 	--namespace operator \
 	pyoung-prometheus \
